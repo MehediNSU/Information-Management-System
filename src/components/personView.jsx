@@ -1,6 +1,9 @@
-import React from "react";
+import { useContext } from "react";
+import { UserContext } from "./registrationForm.jsx";
 
-const PersonView = ({ list, setList, person, setPerson }) => {
+const PersonView = () => {
+  const { list } = useContext(UserContext);
+
   return (
     <div className="card shadow-lg p-3 mb-5 bg-white rounded">
       <h3 className="card shadow-lg p-3 mb-5 bg-white rounded text-center">
