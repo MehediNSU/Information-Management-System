@@ -8,7 +8,6 @@ const PersonView = ({ list, setList, person, setPerson }) => {
       </h3>
       {list.map((item) => {
         const {
-          id,
           firstName,
           middleName,
           lastName,
@@ -19,17 +18,15 @@ const PersonView = ({ list, setList, person, setPerson }) => {
         } = item;
 
         return (
-          <div>
-            <div className="card shadow-lg p-3 mb-5 bg-white rounded">
-              <p>
-                {" "}
-                Full Name: {firstName} {middleName} {lastName}
-              </p>
-              <p>Age: {age}</p>
-              <p>Phone Number: {phoneNumber}</p>
-              <p>Email : {email}</p>
-              <p>Status: {status}</p>
-            </div>
+          <div className="card shadow-lg p-3 mb-5 bg-white rounded">
+            <p>
+              {" "}
+              Full Name: {firstName} {middleName} {lastName}
+            </p>
+            <p>Age: {age}</p>
+            <p>Phone Number: {phoneNumber}</p>
+            <p>Email : {email}</p>
+            <p>Status: {status}</p>
           </div>
         );
       })}
