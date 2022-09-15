@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import "./style.css";
 import PersonView from "./personView.jsx";
+
 export const UserContext = createContext();
 
 const getLocalStorage = () => {
@@ -14,7 +15,7 @@ const getLocalStorage = () => {
 
 function RegistrationForm() {
   const [list, setList] = useState(getLocalStorage());
-  const [person, setPerson] = useState({
+  let [person, setPerson] = useState({
     firstName: "",
     middleName: "",
     lastName: "",
@@ -23,6 +24,7 @@ function RegistrationForm() {
     email: "",
     status: "",
   });
+
   const [isEditing, setIdEditing] = useState(false);
   const [editId, setEditId] = useState(null);
 
@@ -49,18 +51,18 @@ function RegistrationForm() {
               middleName: person.middleName,
               lastName: person.lastName,
               age: person.age,
-              contactNumber: person.contactNumber,
+              phoneNumber: person.phoneNumber,
               email: person.email,
               status: person.status,
             };
             setList([...list, item]);
-            alert("Your information updated.");
+            alert("Information Updated Successfully");
             setPerson({
               firstName: "",
               middleName: "",
               lastName: "",
               age: "",
-              contactNumber: "",
+              phoneNumber: "",
               email: "",
               status: "",
             });
@@ -68,20 +70,20 @@ function RegistrationForm() {
           return item;
         })
       );
+
       setEditId(null);
       isEditing(false);
     } else {
-      alert(isEditing);
       let makeId = list.length + 1;
       person = { ...person, id: makeId };
       setList([...list, person]);
-      alert("Your information saved.");
+      alert("Information Saved Succesfuuly");
       setPerson({
         firstName: "",
         middleName: "",
         lastName: "",
         age: "",
-        contactNumber: "",
+        phoneNumber: "",
         email: "",
         status: "",
       });

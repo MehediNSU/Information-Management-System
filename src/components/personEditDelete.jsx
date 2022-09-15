@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
-
 import { UserContext } from "./registrationForm.jsx";
 
 const PersonEditDelete = ({ item }) => {
@@ -18,7 +17,6 @@ const PersonEditDelete = ({ item }) => {
   } = item;
 
   const editItem = () => {
-    // const editItem = list.find((item) => item.id === id );
     setIdEditing(true);
     setEditId(id);
     setPerson({ ...item, id: id });
@@ -32,6 +30,7 @@ const PersonEditDelete = ({ item }) => {
   };
 
   const removeItem = () => {
+    alert("Information Deleted Successfully");
     setList(list.filter((item) => item.id !== id));
   };
 
