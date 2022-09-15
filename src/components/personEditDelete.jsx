@@ -1,5 +1,10 @@
 import { useContext } from "react";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCircleCheck,
+  faPen,
+  faTrashCan,
+} from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "./registrationForm.jsx";
 
 const PersonEditDelete = ({ item }) => {
@@ -37,10 +42,10 @@ const PersonEditDelete = ({ item }) => {
   return (
     <div>
       <button type="button" className="edit-btn" onClick={() => editItem()}>
-        <FaEdit />
+        <FontAwesomeIcon icon={faPen} />
       </button>
       <button type="button" className="delete-btn" onClick={() => removeItem()}>
-        <FaTrash />
+        <FontAwesomeIcon icon={faTrashCan} />
       </button>
     </div>
   );
