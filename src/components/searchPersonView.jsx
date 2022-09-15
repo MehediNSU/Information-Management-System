@@ -1,5 +1,4 @@
 import { useContext } from "react";
-
 import { UserContext } from "./registrationForm.jsx";
 
 const SearchPersonView = () => {
