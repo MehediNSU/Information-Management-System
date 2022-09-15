@@ -48,7 +48,7 @@ const PersonView = () => {
             <p>Email : {email}</p>
 
             <div className="iconsWrap">
-              {status === "online" ? (
+              {status === "Online" ? (
                 <p>
                   Status: Online{" "}
                   <span>
