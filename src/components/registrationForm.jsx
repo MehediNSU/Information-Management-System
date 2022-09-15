@@ -18,49 +18,89 @@ function RegistrationForm() {
     firstName: "",
     middleName: "",
     lastName: "",
-    age: "",
+    age: null,
     phoneNumber: "",
     email: "",
     status: "",
   });
+  const [isEditing, setIdEditing] = useState(false);
+  const [editId, setEditId] = useState(null);
 
   useEffect(() => {
     localStorage.setItem("list", JSON.stringify(list));
   }, [list]);
 
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    if (id === "firstName") {
-      setPerson({ ...person, firstName: value });
-    }
-    if (id === "middleName") {
-      setPerson({ ...person, middleName: value });
-    }
-    if (id === "lastName") {
-      setPerson({ ...person, lastName: value });
-    }
-    if (id === "age") {
-      setPerson({ ...person, age: value });
-    }
-    if (id === "phoneNumber") {
-      setPerson({ ...person, phoneNumber: value });
-    }
-    if (id === "email") {
-      setPerson({ ...person, email: value });
-    }
-    if (id === "status") {
-      setPerson({ ...person, status: value });
-    }
+  const onChangeHandler = (e) => {
+    const value = e.target.value;
+    const name = e.target.name;
+
+    setPerson({ ...person, [name]: value });
   };
 
-  const handleSubmit = (e) => {
-    setList([...list, person]);
-    e.preventDefault();
-    alert("Save Information Successfully");
+  const submitHanlder = () => {
+    if (isEditing) {
+      setList(
+        list.map((item) => {
+          if (item.id === editId) {
+            item = {
+              ...item,
+              id: person.id,
+              firstName: person.firstName,
+              middleName: person.middleName,
+              lastName: person.lastName,
+              age: person.age,
+              contactNumber: person.contactNumber,
+              email: person.email,
+              status: person.status,
+            };
+            setList([...list, item]);
+            alert("Your information updated.");
+            setPerson({
+              firstName: "",
+              middleName: "",
+              lastName: "",
+              age: "",
+              contactNumber: "",
+              email: "",
+              status: "",
+            });
+          }
+          return item;
+        })
+      );
+      setEditId(null);
+      isEditing(false);
+    } else {
+      alert(isEditing);
+      let makeId = list.length + 1;
+      person = { ...person, id: makeId };
+      setList([...list, person]);
+      alert("Your information saved.");
+      setPerson({
+        firstName: "",
+        middleName: "",
+        lastName: "",
+        age: "",
+        contactNumber: "",
+        email: "",
+        status: "",
+      });
+    }
   };
 
   return (
-    <UserContext.Provider value={{ list, setList, person, setPerson }}>
+    <UserContext.Provider
+      value={{
+        list,
+        setList,
+        person,
+        setPerson,
+        isEditing,
+        setIdEditing,
+        editId,
+        setEditId,
+      }}
+    >
       <div className="form">
         <div className="form-body">
           <div className="firstname">
@@ -72,8 +112,9 @@ function RegistrationForm() {
             <input
               className="form__input"
               type="text"
+              name="firstName"
               value={person.firstName}
-              onChange={(e) => handleInputChange(e)}
+              onChange={onChangeHandler}
               id="firstName"
               placeholder="Enter First Name"
             />
@@ -85,8 +126,9 @@ function RegistrationForm() {
             <input
               className="form__input"
               type="text"
+              name="middleName"
               value={person.middleName}
-              onChange={(e) => handleInputChange(e)}
+              onChange={onChangeHandler}
               id="middleName"
               placeholder="Enter Middle Name"
             />
@@ -97,11 +139,11 @@ function RegistrationForm() {
             </label>
             <input
               type="text"
-              name=""
+              name="lastName"
               id="lastName"
               value={person.lastName}
               className="form__input"
-              onChange={(e) => handleInputChange(e)}
+              onChange={onChangeHandler}
               placeholder="Enter Last Name"
             />
           </div>
@@ -112,8 +154,9 @@ function RegistrationForm() {
             <input
               className="form__input"
               type="number"
+              name="age"
               value={person.age}
-              onChange={(e) => handleInputChange(e)}
+              onChange={onChangeHandler}
               id="age"
               placeholder="Enter Age"
             />
@@ -125,8 +168,9 @@ function RegistrationForm() {
             <input
               className="form__input"
               type="text"
+              name="phoneNumber"
               value={person.phoneNumber}
-              onChange={(e) => handleInputChange(e)}
+              onChange={onChangeHandler}
               id="phoneNumber"
               placeholder="Enter Phone Number"
             />
@@ -138,9 +182,10 @@ function RegistrationForm() {
             <input
               type="email"
               id="email"
+              name="email"
               className="form__input"
               value={person.email}
-              onChange={(e) => handleInputChange(e)}
+              onChange={onChangeHandler}
               placeholder="Enter Email"
             />
           </div>
@@ -152,7 +197,7 @@ function RegistrationForm() {
               className="form__input"
               id="status"
               name="status"
-              onChange={(e) => handleInputChange(e)}
+              onChange={onChangeHandler}
             >
               <option value="online">Online</option>
               <option value="offline">Offline</option>
@@ -161,9 +206,9 @@ function RegistrationForm() {
         </div>
         <div class="footer">
           <button
-            type="submit"
+            type="button"
             class="btn btn-outline-success btn-block"
-            onClick={handleSubmit}
+            onClick={submitHanlder}
           >
             Save
           </button>

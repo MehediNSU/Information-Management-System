@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import PersonEditDelete from "./personEditDelete.jsx";
 import { UserContext } from "./registrationForm.jsx";
 
 const PersonView = () => {
@@ -30,6 +31,7 @@ const PersonView = () => {
             <p>Phone Number: {phoneNumber}</p>
             <p>Email : {email}</p>
             <p>Status: {status}</p>
+            <PersonEditDelete item={item} />
           </div>
         );
       })}
