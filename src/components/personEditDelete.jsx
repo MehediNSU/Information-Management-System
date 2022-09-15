@@ -1,12 +1,7 @@
 import { useContext } from "react";
 import "./newStyle.css";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCircleCheck,
-  faPen,
-  faTrashCan,
-} from "@fortawesome/free-solid-svg-icons";
+import { faPen, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "./registrationForm.jsx";
 
 const PersonEditDelete = ({ item }) => {
