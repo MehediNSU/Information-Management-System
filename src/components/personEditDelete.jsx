@@ -39,10 +39,6 @@ const PersonEditDelete = ({ item }) => {
   return (
     <div className="col taskBg">
       <div className="iconsWrap">
-        {/* <button type="button" className="edit-btn" onClick={() => editItem()}>
-            <FontAwesomeIcon icon={faPen} />
-        </button> */}
-
         <span
           type="button"
           className="edit-btn"
@@ -51,19 +47,14 @@ const PersonEditDelete = ({ item }) => {
         >
           <FontAwesomeIcon icon={faPen} />
         </span>
-
-        {/* <button type="button" className="delete-btn" onClick={() => removeItem()}>
-            <FontAwesomeIcon icon={faTrashCan} />
-        </button> */}
-
-        <span
+        <span2
           title="Delete Information"
           type="button"
           className="delete-btn"
           onClick={() => removeItem()}
         >
           <FontAwesomeIcon icon={faTrashCan} />
-        </span>
+        </span2>
       </div>
     </div>
   );

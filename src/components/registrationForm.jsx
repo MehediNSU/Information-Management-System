@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import "./style.css";
 import PersonView from "./personView.jsx";
+import SearchPersonView from "./searchPersonView.jsx";
 
 export const UserContext = createContext();
 
@@ -27,6 +28,7 @@ function RegistrationForm() {
 
   const [isEditing, setIdEditing] = useState(false);
   const [editId, setEditId] = useState(null);
+  const [searchItem, setSearchItem] = useState("");
 
   useEffect(() => {
     localStorage.setItem("list", JSON.stringify(list));
@@ -101,6 +103,8 @@ function RegistrationForm() {
         setIdEditing,
         editId,
         setEditId,
+        searchItem,
+        setSearchItem,
       }}
     >
       <div className="form">
@@ -217,6 +221,9 @@ function RegistrationForm() {
         </div>
         <br></br>
         <div>
+          <div>
+            <SearchPersonView />
+          </div>
           {list.length > 0 && (
             <PersonView
               list={list}
