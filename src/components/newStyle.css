@@ -1,0 +1,24 @@
+.taskBg {
+  background-color: rgb(202, 193, 193);
+  border-radius: 6px;
+  margin-bottom: 20px;
+  text-align: left;
+  position: relative;
+}
+.taskBg div {
+  display: flex;
+  align-items: center;
+}
+
+.taskBg .iconsWrap span {
+  display: inline-block;
+  margin: 0px 10px 0 10px;
+  cursor: pointer;
+  color: rgb(33, 58, 218);
+}
+.taskBg .iconsWrap span:hover {
+  color: rgb(191, 75, 40);
+}
+.mr-20 {
+  margin-right: 20px;
+}

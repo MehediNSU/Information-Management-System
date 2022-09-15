@@ -1,4 +1,6 @@
 import { useContext } from "react";
+import "./newStyle.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleCheck,
@@ -40,13 +42,34 @@ const PersonEditDelete = ({ item }) => {
   };
 
   return (
-    <div>
-      <button type="button" className="edit-btn" onClick={() => editItem()}>
-        <FontAwesomeIcon icon={faPen} />
-      </button>
-      <button type="button" className="delete-btn" onClick={() => removeItem()}>
-        <FontAwesomeIcon icon={faTrashCan} />
-      </button>
+    <div className="col taskBg">
+      <div className="iconsWrap">
+        {/* <button type="button" className="edit-btn" onClick={() => editItem()}>
+            <FontAwesomeIcon icon={faPen} />
+        </button> */}
+
+        <span
+          type="button"
+          className="edit-btn"
+          title="Edit Information"
+          onClick={() => editItem()}
+        >
+          <FontAwesomeIcon icon={faPen} />
+        </span>
+
+        {/* <button type="button" className="delete-btn" onClick={() => removeItem()}>
+            <FontAwesomeIcon icon={faTrashCan} />
+        </button> */}
+
+        <span
+          title="Delete Information"
+          type="button"
+          className="delete-btn"
+          onClick={() => removeItem()}
+        >
+          <FontAwesomeIcon icon={faTrashCan} />
+        </span>
+      </div>
     </div>
   );
 };
