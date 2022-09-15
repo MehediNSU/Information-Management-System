@@ -205,8 +205,8 @@ function RegistrationForm() {
               name="status"
               onChange={onChangeHandler}
             >
-              <option value="online">Online</option>
-              <option value="offline">Offline</option>
+              <option value="Online">Online</option>
+              <option value="Offline">Offline</option>
             </select>
           </div>
         </div>
