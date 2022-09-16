@@ -8,7 +8,7 @@ const SearchPersonView = () => {
     <div className="card shadow-lg p-3 mb-5 bg-white rounded">
       <input
         type="text"
-        placeholder="🔍 Search person by First Name"
+        placeholder="🔍 Search by First Name"
         className="card shadow-lg p-3 mb-5 bg-white rounded"
         onChange={(e) => {
           setSearchItem(e.target.value);
