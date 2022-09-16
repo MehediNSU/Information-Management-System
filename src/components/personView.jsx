@@ -13,7 +13,7 @@ const PersonView = () => {
         if (item.id === ID) {
           item = { ...item, status: value };
           setList([...list, item]);
-          alert("Your information updated.");
+          alert("Status Updated Successfully");
         }
         return item;
       })

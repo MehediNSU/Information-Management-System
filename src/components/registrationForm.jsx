@@ -72,7 +72,6 @@ function RegistrationForm() {
           return item;
         })
       );
-
       setEditId(null);
       isEditing(false);
     } else {
