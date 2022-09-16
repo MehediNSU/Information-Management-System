@@ -3,6 +3,7 @@ import "./newStyle.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "./registrationForm.jsx";
+import { Link } from "react-router-dom";
 
 const PersonEditDelete = ({ item }) => {
   const { list, setList, setPerson, setIdEditing, setEditId } =
@@ -45,7 +46,9 @@ const PersonEditDelete = ({ item }) => {
           title="Edit Information"
           onClick={() => editItem()}
         >
-          <FontAwesomeIcon icon={faPen} />
+          <Link className="edit-btn" to="/createperson">
+            <FontAwesomeIcon icon={faPen} />
+          </Link>
         </span>
         <span2
           title="Delete Information"
