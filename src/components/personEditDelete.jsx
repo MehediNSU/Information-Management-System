@@ -47,17 +47,19 @@ const PersonEditDelete = ({ item }) => {
           onClick={() => editItem()}
         >
           <Link className="edit-btn" to="/createperson">
-            <FontAwesomeIcon icon={faPen} />
+            <span2>
+              <FontAwesomeIcon icon={faPen} />
+            </span2>
           </Link>
         </span>
-        <span2
+        <span3
           title="Delete Information"
           type="button"
           className="delete-btn"
           onClick={() => removeItem()}
         >
           <FontAwesomeIcon icon={faTrashCan} />
-        </span2>
+        </span3>
       </div>
     </div>
   );

@@ -17,9 +17,9 @@
   position: center;
   color: green;
 }
-.taskBg .iconsWrap span:hover {
+/* .taskBg .iconsWrap span:hover {
   color: blue;
-}
+} */
 .taskBg .iconsWrap span2 {
   display: inline-block;
   margin: 0px 10px 0 10px;
@@ -28,6 +28,16 @@
   color: green;
 }
 .taskBg .iconsWrap span2:hover {
+  color: blue;
+}
+.taskBg .iconsWrap span3 {
+  display: inline-block;
+  margin: 0px 10px 0 10px;
+  cursor: pointer;
+  position: center;
+  color: green;
+}
+.taskBg .iconsWrap span3:hover {
   color: red;
 }
 .mr-20 {
